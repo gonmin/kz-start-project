@@ -15,8 +15,8 @@ export const api = {
       });
   },
   getHostName: function () {
-    var host = location.hostname === 's.qdtech.ai' ? location.host : 's.qdtech.ai';
+    var host = location.hostname === 's.qdtech.ai' ? location.host : 'dev.s.qdtech.ai';
     console.log('location.host', location.hostname, 'host', host)
-    return 'http://' + host + '/project/php_survey/index.php'
+    return 'http://' + host + '/project/php_pcp/index.php'
   }
 }
