@@ -84,5 +84,25 @@ export default {
   　　}
   　　scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
   　　return scrollTop;
+  },
+  validate (value, type = 'require') {
+    value = value.trim();
+    // 非空验证。
+    if (type === 'require') {
+        return !!value;
+    }
+    // 手机号验证
+    if (type === 'phone') {
+        return /1\d{10}$/.test(value);
+    }
+    // 邮箱验证
+    if (type === 'email') {
+        return /^(\w)+(\.\w+)*@(\w)+((\.\w{2,3}){1,3})$/.test(value);
+    }
+
+    // 身份证验证
+    if (type === 'idcard') {
+        return /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test(value);
+    }
   }
 }
