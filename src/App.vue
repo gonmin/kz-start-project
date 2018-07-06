@@ -1,13 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <!-- <HelloWorld/> -->
-    <p class="mao">. </p>
-    <!-- <hello-world></hello-world> -->
-    <div>{{age}}</div>
-    <slot-study>
-      save
-    </slot-study>
+     start
   </div>
 </template>
 
@@ -19,6 +12,9 @@ import {api} from './lib/api.js'
 import {getUrlParam} from './lib/util'
 import util from './lib/util'
 import landpage from './mixins/landpage.js'
+import 'swiper/dist/css/swiper.min.css'
+import swiperConfig from './config/swiperConfig.js'
+import Swiper from 'swiper'
 
 export default {
   mixins: [landpage],
@@ -42,6 +38,7 @@ export default {
 
 <style lang="less">
 @import './assets/css/normalize';
+
 .text-overflow() {
   width: 100%;
   overflow: hidden;
@@ -68,7 +65,7 @@ export default {
 }
 
 #app {
-  height: 1200px;
+  height: 100%;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
