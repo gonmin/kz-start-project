@@ -28,47 +28,6 @@ export default {
     slotStudy
   },
   mounted () {
-    console.log([1, 2, 'fanfan'].find(item => item === 'fanfan'))
-    var params = {
-      token_id: '309bfffb9b64724760a43ef9d579f0eb9ad545datype1',
-      survey_id: 24630300
-    }
-    var params1 = {
-      token_id: '309bfffb9b64724760a43ef9d579f0eb9ad545datype1',
-      survey_id: 210601
-    }
-    var params2 = {
-      token_id: '309bfffb9b64724760a43ef9d579f0eb9ad545datype1',
-      survey_id: 214301
-    }
-    api.promiseCommonApi(params).then(data => {
-      console.log(data, 'promise 第一个接口')
-    }, err => {
-      console.log(err)
-    })
-    .catch(err => {
-      debugger
-      console.log(err)
-    })
-    .finally(() => {
-      console.log('执行fanally')
-    })
-    // .then(api.promiseCommonApi(params1).then(data1 => {
-    //   console.log(data1, 'data1', '第二个接口')
-    // }))
-    // .then(api.promiseCommonApi(params2).then(data2 => {
-    //   console.log(data2, 'data1', '第三个接口')
-    // }))
-
-    // api.promiseCommonApi(params2).then(api.promiseCommonApi(params1))
-    // .then(api.promiseCommonApi(params))
-    // .then(data => {
-    //   console.log(data)
-    // })
-    // Promise.all([api.promiseCommonApi(params2), api.promiseCommonApi(params1)]).then((data) => {
-    //   console.log(data, 'kkgggkk')
-    //   api.promiseCommonApi(params)
-    // })
   },
   methods: {
   }
