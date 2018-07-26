@@ -24,6 +24,14 @@ export default {
       msg: 'Welcome to Your Vue.js App',
       showModal: true
     }
+  },
+  props: {
+    testObj: {
+      type: Array,
+      default () {
+        return []
+      }
+    }
   }
 }
 </script>
