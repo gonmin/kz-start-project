@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    dkdk
   </div>
 </template>
 
@@ -28,6 +29,45 @@ export default {
     slotStudy
   },
   mounted () {
+    axios.get('http://www.qdtech.ai/index.php/lexicon/getLexiconList', {
+        params: {
+          brand_id: 2901,
+          page: 1,
+          page_size: 100
+        }
+      })
+      .then(function (response) {
+        console.log(response.data.data.list)
+        var list = response.data.data.list
+        var inputs = [
+          {
+            text: 'yiduo'
+          },
+          {
+            text: 'yingzhidao'
+          },
+          {
+            text: 'kdkkd'
+          }
+        ]
+        var matchResult = []
+        var allresult = []
+        inputs.forEach(input => {
+          var matchBrand = list.find((l, index) => {
+            console.log(index)
+            return l.rule.some(ru => new RegExp(ru, 'i').test(input.text))
+          })
+          if (matchBrand) {
+            matchResult.push(Object.assign(input, {code: matchBrand.code, text: matchBrand.name}))
+            allresult.push(Object.assign(input, {code: matchBrand.code, text: matchBrand.name}))
+          } else {
+            allresult.push(input)
+          }
+        })
+        console.log(matchResult, allresult)
+      })
+      .catch(function (error) {
+      });
   },
   methods: {
   }
@@ -43,25 +83,6 @@ export default {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.box {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  background-color: red;
-  .word {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-  }
-}
-.mao {
-  .text-overflow;
-  height: 400px;
-}
-
 #app {
   height: 100%;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -69,6 +90,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  // margin-top: 60px;
 }
 </style>
